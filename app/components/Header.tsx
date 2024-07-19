@@ -3,6 +3,7 @@ import {Await, NavLink} from '@remix-run/react';
 import {type CartViewPayload, useAnalytics} from '@shopify/hydrogen';
 import type {HeaderQuery, CartApiQueryFragment} from 'storefrontapi.generated';
 import {useAside} from '~/components/Aside';
+import ThemeToggle from "~/components/ThemeToggle";
 
 interface HeaderProps {
   header: HeaderQuery;
@@ -21,11 +22,13 @@ export function Header({
 }: HeaderProps) {
   const {shop, menu} = header;
   return (
-    <header className={'py-4'}>
-      <div className="container mx-auto">
-        <NavLink prefetch="intent" to="/" style={activeLinkStyle} end>
+    <header className={'py-4 dark:bg-black'}>
+      <div className="container mx-auto flex items-center">
+        <NavLink prefetch="intent" to="/" style={activeLinkStyle} end className={"me-auto"}>
           <strong>{shop.name}</strong>
         </NavLink>
+
+        <ThemeToggle />
       </div>
     </header>
   );
