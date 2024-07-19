@@ -21,6 +21,24 @@ export function Header({
 }: HeaderProps) {
   const {shop, menu} = header;
   return (
+    <header className={'py-4'}>
+      <div className="container mx-auto">
+        <NavLink prefetch="intent" to="/" style={activeLinkStyle} end>
+          <strong>{shop.name}</strong>
+        </NavLink>
+      </div>
+    </header>
+  );
+}
+
+export function OldHeader({
+  header,
+  isLoggedIn,
+  cart,
+  publicStoreDomain,
+}: HeaderProps) {
+  const {shop, menu} = header;
+  return (
     <header className="header">
       <NavLink prefetch="intent" to="/" style={activeLinkStyle} end>
         <strong>{shop.name}</strong>
