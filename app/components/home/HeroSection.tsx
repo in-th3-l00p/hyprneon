@@ -6,7 +6,7 @@ export function HeroSection() {
     <section
       className={clsx(
         'grid grid-cols-1 md:grid-cols-2 items-center',
-        'py-32 md:py-16 px-8 md:px-16 lg:px-32 gap-8',
+        'px-8 container mx-auto py-32 md:py-16 gap-8',
       )}
     >
       <div className={'text-center'}>
@@ -24,7 +24,7 @@ export function HeroSection() {
       <img
         src={'/static/logo.png'}
         alt={'logo'}
-        className={'max-w-[500px] w-full mx-auto'}
+        className={'max-w-[500px] w-full mx-auto md:ms-auto md:me-0'}
       />
     </section>
   );

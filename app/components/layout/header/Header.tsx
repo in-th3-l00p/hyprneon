@@ -31,7 +31,7 @@ export function Header({
   const {shop, menu} = header;
   return (
     <header className={'py-4 dark:bg-black'}>
-      <div className="container mx-auto flex items-center gap-8">
+      <div className="px-8 container mx-auto flex items-center gap-8">
         <div className={'flex items-center gap-8 me-auto'}>
           <NavLink to="/" prefetch="intent" end>
             <h2 className={'text-2xl font-bold dark:text-white my-auto'}>
