@@ -13,9 +13,8 @@ import {
   useLoaderData,
 } from '@remix-run/react';
 import favicon from '~/assets/favicon.svg';
-import resetStyles from '~/styles/reset.css?url';
 import appStyles from '~/styles/app.css?url';
-import {PageLayout} from '~/components/PageLayout';
+import {PageLayout} from '~/components/layout/PageLayout';
 import {FOOTER_QUERY, HEADER_QUERY} from '~/lib/fragments';
 import '~/styles/tailwind.css';
 import {themeSessionResolver} from '~/sessions.server';
@@ -46,7 +45,6 @@ export const shouldRevalidate: ShouldRevalidateFunction = ({
 
 export function links() {
   return [
-    {rel: 'stylesheet', href: resetStyles},
     {rel: 'stylesheet', href: appStyles},
     {
       rel: 'preconnect',

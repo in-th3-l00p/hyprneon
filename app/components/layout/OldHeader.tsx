@@ -1,38 +1,10 @@
-import {Suspense} from 'react';
-import {Await, NavLink} from '@remix-run/react';
-import {type CartViewPayload, useAnalytics} from '@shopify/hydrogen';
-import type {HeaderQuery, CartApiQueryFragment} from 'storefrontapi.generated';
 import {useAside} from '~/components/Aside';
-import ThemeToggle from "~/components/ThemeToggle";
+import type {CartViewPayload} from '@shopify/hydrogen';
+import {useAnalytics} from '@shopify/hydrogen';
+import React, {Suspense} from 'react';
+import {Await, NavLink} from '@remix-run/react';
 
-interface HeaderProps {
-  header: HeaderQuery;
-  cart: Promise<CartApiQueryFragment | null>;
-  isLoggedIn: Promise<boolean>;
-  publicStoreDomain: string;
-}
-
-type Viewport = 'desktop' | 'mobile';
-
-export function Header({
-  header,
-  isLoggedIn,
-  cart,
-  publicStoreDomain,
-}: HeaderProps) {
-  const {shop, menu} = header;
-  return (
-    <header className={'py-4 dark:bg-black'}>
-      <div className="container mx-auto flex items-center">
-        <NavLink prefetch="intent" to="/" style={activeLinkStyle} end className={"me-auto"}>
-          <strong>{shop.name}</strong>
-        </NavLink>
-
-        <ThemeToggle />
-      </div>
-    </header>
-  );
-}
+// todo to be removed
 
 export function OldHeader({
   header,
