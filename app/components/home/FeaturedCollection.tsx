@@ -2,7 +2,7 @@ import type {FeaturedCollectionFragment} from '../../../storefrontapi.generated'
 import {Link} from '@remix-run/react';
 import {Image} from '@shopify/hydrogen';
 
-function FeaturedCollection({
+export default function FeaturedCollection({
   collection,
 }: {
   collection: FeaturedCollectionFragment;

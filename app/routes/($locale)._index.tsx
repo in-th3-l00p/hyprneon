@@ -1,7 +1,7 @@
 import {defer, type LoaderFunctionArgs} from '@shopify/remix-oxygen';
 import {type MetaFunction, useLoaderData} from '@remix-run/react';
-import {FEATURED_COLLECTION_QUERY} from '~/components/home/FeaturedCollection';
-import {RECOMMENDED_PRODUCTS_QUERY} from '~/components/RecommandedProduct';
+import FeaturedCollection, {FEATURED_COLLECTION_QUERY} from '~/components/home/FeaturedCollection';
+import RecommendedProducts, {RECOMMENDED_PRODUCTS_QUERY} from '~/components/RecommandedProduct';
 import {HeroSection} from '~/components/home/HeroSection';
 
 export const meta: MetaFunction = () => {
@@ -62,9 +62,9 @@ export default function Homepage() {
   return (
     <div className="home">
       <HeroSection />
+      <RecommendedProducts products={data.recommendedProducts} />
 
       {/*<FeaturedCollection collection={data.featuredCollection} />*/}
-      {/*<RecommendedProducts products={data.recommendedProducts} />*/}
     </div>
   );
 }

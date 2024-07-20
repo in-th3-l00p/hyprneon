@@ -2,32 +2,39 @@ import type {RecommendedProductsQuery} from '../../storefrontapi.generated';
 import {Suspense} from 'react';
 import {Await, Link} from '@remix-run/react';
 import {Image, Money} from '@shopify/hydrogen';
+import {clsx} from 'clsx';
 
-function RecommendedProducts({
+export default function RecommendedProducts({
   products,
 }: {
   products: Promise<RecommendedProductsQuery | null>;
 }) {
   return (
-    <div className="recommended-products">
-      <h2>Recommended Products</h2>
+    <section className={'container mx-auto'}>
+      <h2 className={'text-4xl mb-8'}>Recommended Products</h2>
       <Suspense fallback={<div>Loading...</div>}>
         <Await resolve={products}>
           {(response) => (
-            <div className="recommended-products-grid">
+            <div
+              className={clsx(
+                'grid justify-center items-center gap-16',
+                'md:grid-cols-2',
+              )}
+            >
               {response
                 ? response.products.nodes.map((product) => (
                     <Link
                       key={product.id}
-                      className="recommended-product"
+                      className="text-center"
                       to={`/products/${product.handle}`}
                     >
                       <Image
                         data={product.images.nodes[0]}
                         aspectRatio="1/1"
                         sizes="(min-width: 45em) 20vw, 50vw"
+                        className={'max-w-[400px] mx-auto mb-4 rounded-md'}
                       />
-                      <h4>{product.title}</h4>
+                      <h3 className={'text-lg'}>{product.title}</h3>
                       <small>
                         <Money data={product.priceRange.minVariantPrice} />
                       </small>
@@ -39,7 +46,7 @@ function RecommendedProducts({
         </Await>
       </Suspense>
       <br />
-    </div>
+    </section>
   );
 }
 
