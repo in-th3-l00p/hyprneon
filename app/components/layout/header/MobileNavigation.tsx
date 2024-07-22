@@ -3,7 +3,7 @@ import {Button} from "~/components/ui/button";
 import {MenuIcon} from "lucide-react";
 import {NavLink} from "@remix-run/react";
 import React from "react";
-import {HeaderProps} from "~/components/layout/header/Header";
+import {HeaderProps} from "~/components/layout/header/index";
 
 export function MobileNavigation({header}: HeaderProps) {
   return (

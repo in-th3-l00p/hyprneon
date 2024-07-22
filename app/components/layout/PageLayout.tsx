@@ -7,7 +7,7 @@ import type {
 } from '../../../storefrontapi.generated';
 import {Aside} from '~/components/Aside';
 import {Footer} from '~/components/layout/Footer';
-import {Header} from '~/components/layout/header/Header';
+import {Index} from '~/components/layout/header';
 import {CartMain} from '~/components/CartMain';
 import {
   PredictiveSearchForm,
@@ -38,7 +38,7 @@ export function PageLayout({
       {/*<SearchAside />*/}
       {/*<MobileMenuAside header={header} publicStoreDomain={publicStoreDomain} />*/}
       {header && (
-        <Header
+        <Index
           header={header}
           cart={cart}
           isLoggedIn={isLoggedIn}

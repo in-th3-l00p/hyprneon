@@ -1,7 +1,7 @@
 import {defer, type LoaderFunctionArgs} from '@shopify/remix-oxygen';
 import {type MetaFunction, useLoaderData} from '@remix-run/react';
 import FeaturedCollection, {FEATURED_COLLECTION_QUERY} from '~/components/home/FeaturedCollection';
-import RecommendedProducts, {RECOMMENDED_PRODUCTS_QUERY} from '~/components/RecommandedProduct';
+import RecommendedProducts, {RECOMMENDED_PRODUCTS_QUERY} from '~/components/home/RecommandedProduct';
 import {HeroSection} from '~/components/home/HeroSection';
 
 export const meta: MetaFunction = () => {

@@ -592,7 +592,7 @@
      it in the internal url check
 
   ```diff
-  // app/components/Header.tsx
+  // app/components/index.tsx
 
   + import type {HeaderQuery} from 'storefrontapi.generated';
 
@@ -684,7 +684,7 @@
         <CartAside cart={cart} />
         <SearchAside />
         <MobileMenuAside menu={header.menu} shop={header.shop} />
-        <Header header={header} cart={cart} isLoggedIn={isLoggedIn} />
+        <Index header={header} cart={cart} isLoggedIn={isLoggedIn} />
         <main>{children}</main>
         <Suspense>
           <Await resolve={footer}>
