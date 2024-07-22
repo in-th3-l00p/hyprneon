@@ -138,7 +138,6 @@ async function loadDeferredData({request, context}: LoaderFunctionArgs) {
 
 export function Html({children}: {children?: React.ReactNode}) {
   const [theme] = useTheme();
-  console.log(theme)
 
   return (
     <html lang="en" className={'dark'}>

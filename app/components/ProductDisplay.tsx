@@ -3,6 +3,7 @@ import {Link} from '@remix-run/react';
 import {Image, Money} from '@shopify/hydrogen';
 import {Button} from '~/components/ui/button';
 import {ChevronRight, ShoppingCart} from 'lucide-react';
+import {AddToCartButton} from '~/components/AddToCartButton';
 
 export default function ProductDisplay({product}) {
   return (
@@ -36,13 +37,16 @@ export default function ProductDisplay({product}) {
             <ChevronRight className={'ms-2 w-4 h-4'} />
           </Button>
 
-          <Button
-            variant={'secondary'}
-            className={'flex gap-2 justify-between'}
+          <AddToCartButton
+            lines={[
+              {
+                merchandiseId: product.id,
+                quantity: 1,
+              },
+            ]}
           >
             add 2 cart
-            <ShoppingCart className={'ms-2 w-4 h-4'} />
-          </Button>
+          </AddToCartButton>
         </div>
       </div>
     </div>

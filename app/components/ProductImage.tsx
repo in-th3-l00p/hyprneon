@@ -1,5 +1,8 @@
 import type {ProductVariantFragment} from 'storefrontapi.generated';
 import {Image} from '@shopify/hydrogen';
+import {clsx} from "clsx";
+
+const productImage = clsx("h-96");
 
 export function ProductImage({
   image,

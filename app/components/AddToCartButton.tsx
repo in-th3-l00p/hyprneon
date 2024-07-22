@@ -1,5 +1,7 @@
 import {type FetcherWithComponents} from '@remix-run/react';
 import {CartForm, type OptimisticCartLineInput} from '@shopify/hydrogen';
+import {Button} from '~/components/ui/button';
+import {ShoppingCart} from 'lucide-react';
 
 export function AddToCartButton({
   analytics,
@@ -23,13 +25,16 @@ export function AddToCartButton({
             type="hidden"
             value={JSON.stringify(analytics)}
           />
-          <button
+          <Button
+            variant={'secondary'}
             type="submit"
             onClick={onClick}
             disabled={disabled ?? fetcher.state !== 'idle'}
+            className={'flex justify-between gap-4'}
           >
             {children}
-          </button>
+            <ShoppingCart />
+          </Button>
         </>
       )}
     </CartForm>
