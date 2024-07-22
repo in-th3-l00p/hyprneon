@@ -6,6 +6,7 @@ import {clsx} from 'clsx';
 import {Button} from '~/components/ui/button';
 import {ChevronRight, ShoppingCart} from 'lucide-react';
 import ProductDisplay from '~/components/ProductDisplay';
+import Parallax from "~/components/home/Parallax";
 
 export default function RecommendedProducts({
   products,
@@ -19,7 +20,7 @@ export default function RecommendedProducts({
           {(response) => (
             <div
               className={clsx(
-                'grid justify-center items-center gap-32',
+                'grid justify-center items-center gap-32 lg:gap-x-64',
                 'md:grid-cols-2',
               )}
             >

@@ -3,6 +3,7 @@ import {type MetaFunction, useLoaderData} from '@remix-run/react';
 import FeaturedCollection, {FEATURED_COLLECTION_QUERY} from '~/components/home/FeaturedCollection';
 import RecommendedProducts, {RECOMMENDED_PRODUCTS_QUERY} from '~/components/home/RecommandedProduct';
 import {HeroSection} from '~/components/home/HeroSection';
+import Parallax from "~/components/home/Parallax";
 
 export const meta: MetaFunction = () => {
   return [
@@ -62,6 +63,7 @@ export default function Homepage() {
   return (
     <div className="home">
       <HeroSection />
+      <Parallax />
       <RecommendedProducts products={data.recommendedProducts} />
 
       {/*<FeaturedCollection collection={data.featuredCollection} />*/}
