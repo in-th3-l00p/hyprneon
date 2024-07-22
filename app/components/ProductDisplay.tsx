@@ -19,15 +19,15 @@ export default function ProductDisplay({product}) {
           className={'w-full mx-auto mb-4 rounded-md'}
         />
       </Link>
-      <div className="flex justify-between flex-wrap gap-4">
+      <div className="flex gap-8 justify-between flex-wrap">
         <div>
           <h3 className={'text-lg'}>{product.title}</h3>
           <p className={'max-w-[300px]'}>
             {product.description.substring(0, 100)}
           </p>
         </div>
-        <div className={'flex flex-col gap-2'}>
-          <small className={'text-right'}>
+        <div className={'flex flex-col gap-2 max-w-fit'}>
+          <small>
             <Money data={product.priceRange.minVariantPrice} />
           </small>
 
