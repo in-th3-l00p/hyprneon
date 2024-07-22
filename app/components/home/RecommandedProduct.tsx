@@ -1,12 +1,8 @@
 import type {RecommendedProductsQuery} from '../../../storefrontapi.generated';
 import {Suspense} from 'react';
-import {Await, Link} from '@remix-run/react';
-import {Image, Money} from '@shopify/hydrogen';
+import {Await} from '@remix-run/react';
 import {clsx} from 'clsx';
-import {Button} from '~/components/ui/button';
-import {ChevronRight, ShoppingCart} from 'lucide-react';
 import ProductDisplay from '~/components/ProductDisplay';
-import Parallax from "~/components/home/Parallax";
 
 export default function RecommendedProducts({
   products,
