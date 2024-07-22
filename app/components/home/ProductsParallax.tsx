@@ -1,6 +1,6 @@
 import {clsx} from 'clsx';
 
-export default function Parallax() {
+export default function ProductsParallax() {
   return (
     <section className={'relative w-full h-96 overflow-hidden mb-16'}>
       <div
