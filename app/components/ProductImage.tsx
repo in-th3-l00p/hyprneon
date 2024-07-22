@@ -1,8 +1,8 @@
 import type {ProductVariantFragment} from 'storefrontapi.generated';
 import {Image} from '@shopify/hydrogen';
-import {clsx} from "clsx";
+import {clsx} from 'clsx';
 
-const productImage = clsx("h-96");
+const productImage = clsx('h-96');
 
 export function ProductImage({
   image,
@@ -20,6 +20,7 @@ export function ProductImage({
         data={image}
         key={image.id}
         sizes="(min-width: 45em) 50vw, 100vw"
+        className={'rounded-md'}
       />
     </div>
   );

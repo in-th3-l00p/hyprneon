@@ -139,8 +139,8 @@ export default function Product() {
   return (
     <div
       className={clsx(
-        'container mx-auto py-32',
-        'grid grid-cols-1 gap-8 md:grid-cols-2 md:gap-16',
+        'container mx-auto py-16 lg:py-32',
+        'grid grid-cols-1 gap-16 sm:grid-cols-2 lg:gap-32',
       )}
     >
       <ProductImage image={selectedVariant?.image} />
@@ -176,7 +176,7 @@ export default function Product() {
         <br />
         <br />
         <p>
-          <strong>Description</strong>
+          <strong className={"text-2xl font-bold"}>Description</strong>
         </p>
         <br />
         <div dangerouslySetInnerHTML={{__html: descriptionHtml}} />
