@@ -26,7 +26,7 @@ export default function ShopParallax() {
         <p className={'text-lg mb-4'}>
           Explore our catalog to find the sign that suits you best
         </p>
-        <Link to={'/catalog'}>
+        <Link to={'/collections/all'}>
           <Button>catalog</Button>
         </Link>
       </div>

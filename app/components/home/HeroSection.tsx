@@ -8,6 +8,7 @@ import {
   CarouselPrevious,
 } from '~/components/ui/carousel';
 import Autoplay from 'embla-carousel-autoplay';
+import {Link} from '@remix-run/react';
 
 export function HeroSection() {
   return (
@@ -33,7 +34,9 @@ export function HeroSection() {
                   <img
                     src={`/static/carousel/${index}.jpg`}
                     alt={`Neon lights ${index}`}
-                    className={'w-screen h-screen object-cover object-center brightness-[40%]'}
+                    className={
+                      'w-screen h-screen object-cover object-center brightness-[40%]'
+                    }
                   />
                 </div>
               </CarouselItem>
@@ -50,11 +53,17 @@ export function HeroSection() {
         )}
       >
         <h1 className={'text-4xl font-bold mb-4'}>HyprNeon</h1>
-        <h2 className={'text-xl mb-4'}>i told my boy go roll like 10 blunts for me, fuck carti</h2>
+        <h2 className={'text-xl mb-4'}>
+          i told my boy go roll like 10 blunts for me, fuck carti
+        </h2>
 
         <div className="flex justify-center gap-4">
-          <Button variant={"outline"}>catalog</Button>
-          <Button variant={"outline"}>contact</Button>
+          <Link to={'/collections/all'}>
+            <Button variant={'outline'}>catalog</Button>
+          </Link>
+          <Link to={'/contact'}>
+            <Button variant={'outline'}>contact</Button>
+          </Link>
         </div>
       </div>
     </section>

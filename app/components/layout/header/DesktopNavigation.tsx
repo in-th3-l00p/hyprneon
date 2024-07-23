@@ -46,7 +46,7 @@ export function DesktopNavigation(props: HeaderProps) {
     <NavigationMenu className={'hidden md:flex'}>
       <NavigationMenuList>
         <NavigationMenuItem>
-          <Link to="/catalog" legacyBehavior passHref>
+          <Link to="/collections/all" legacyBehavior passHref>
             <NavigationMenuLink className={navLink()}>
               Catalog
             </NavigationMenuLink>
