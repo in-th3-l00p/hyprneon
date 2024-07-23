@@ -28,13 +28,15 @@ export function MobileNavigation({header}: HeaderProps) {
           </SheetTitle>
         </SheetHeader>
 
-        <NavLink to={'/collections/all'} className={'text-lg'}>
-          Catalog
-        </NavLink>
+        <div className="flex flex-col gap-4">
+          <NavLink to={'/collections/all'} className={'text-lg'}>
+            Catalog
+          </NavLink>
 
-        <NavLink to={'/contact'} className={'text-lg'}>
-          Contact
-        </NavLink>
+          <NavLink to={'/contact'} className={'text-lg'}>
+            Contact
+          </NavLink>
+        </div>
       </SheetContent>
     </Sheet>
   );
