@@ -5,7 +5,7 @@ import {Button} from '~/components/ui/button';
 import {ChevronRight, ShoppingCart} from 'lucide-react';
 import {AddToCartButton} from '~/components/utils/AddToCartButton';
 
-export default function ProductDisplay({product}) {
+export default function ProductDisplay({product, loading}) {
   return (
     <div
       className={clsx(
@@ -13,12 +13,23 @@ export default function ProductDisplay({product}) {
       )}
     >
       <Link to={`/products/${product.handle}`}>
-        <Image
-          data={product.images.nodes[0]}
-          aspectRatio="1/1"
-          sizes="(min-width: 45em) 20vw, 50vw"
-          className={'w-full mx-auto mb-4 rounded-md'}
-        />
+        {product.images && (
+          <Image
+            data={product.images.nodes[0]}
+            aspectRatio="1/1"
+            sizes="(min-width: 45em) 20vw, 50vw"
+            className={'w-full mx-auto mb-4 rounded-md'}
+            loading={loading || 'lazy'}
+          />
+        )}
+        {product.featuredImage && (
+          <Image
+            data={product.featuredImage}
+            aspectRatio="1/1"
+            sizes="(min-width: 45em) 20vw, 50vw"
+            className={'w-full mx-auto mb-4 rounded-md'}
+          />
+        )}
       </Link>
       <div className="flex gap-8 justify-between flex-wrap">
         <div>

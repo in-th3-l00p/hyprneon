@@ -8,6 +8,9 @@ import {
 } from '@shopify/hydrogen';
 import type {ProductItemFragment} from 'storefrontapi.generated';
 import {useVariantUrl} from '~/lib/variants';
+import ProductsParallax from "~/components/home/ProductsParallax";
+import {productsGrid} from "~/styles/primitives";
+import ProductDisplay from "~/components/ProductDisplay";
 
 export const meta: MetaFunction<typeof loader> = () => {
   return [{title: `Hydrogen | Products`}];
@@ -55,32 +58,34 @@ export default function Collection() {
   const {products} = useLoaderData<typeof loader>();
 
   return (
-    <div className="collection">
-      <h1>Products</h1>
-      <Pagination connection={products}>
-        {({nodes, isLoading, PreviousLink, NextLink}) => (
-          <>
-            <PreviousLink>
-              {isLoading ? 'Loading...' : <span>↑ Load previous</span>}
-            </PreviousLink>
-            <ProductsGrid products={nodes} />
-            <br />
-            <NextLink>
-              {isLoading ? 'Loading...' : <span>Load more ↓</span>}
-            </NextLink>
-          </>
-        )}
-      </Pagination>
-    </div>
+    <section>
+      <ProductsParallax />
+      <div className="px-8 container mx-auto">
+        <Pagination connection={products}>
+          {({nodes, isLoading, PreviousLink, NextLink}) => (
+            <>
+              <PreviousLink>
+                {isLoading ? 'Loading...' : <span>↑ Load previous</span>}
+              </PreviousLink>
+              <ProductsGrid products={nodes} />
+              <br />
+              <NextLink>
+                {isLoading ? 'Loading...' : <span>Load more ↓</span>}
+              </NextLink>
+            </>
+          )}
+        </Pagination>
+      </div>
+    </section>
   );
 }
 
 function ProductsGrid({products}: {products: ProductItemFragment[]}) {
   return (
-    <div className="products-grid">
+    <div className={productsGrid()}>
       {products.map((product, index) => {
         return (
-          <ProductItem
+          <ProductDisplay
             key={product.id}
             product={product}
             loading={index < 8 ? 'eager' : undefined}
@@ -133,6 +138,7 @@ const PRODUCT_ITEM_FRAGMENT = `#graphql
     id
     handle
     title
+    description
     featuredImage {
       id
       altText

@@ -3,6 +3,7 @@ import {Suspense} from 'react';
 import {Await} from '@remix-run/react';
 import {clsx} from 'clsx';
 import ProductDisplay from '~/components/ProductDisplay';
+import {productsGrid} from "~/styles/primitives";
 
 export default function RecommendedProducts({
   products,
@@ -14,12 +15,7 @@ export default function RecommendedProducts({
       <Suspense fallback={<div>Loading...</div>}>
         <Await resolve={products}>
           {(response) => (
-            <div
-              className={clsx(
-                'grid justify-center items-center gap-32 lg:gap-x-64',
-                'md:grid-cols-2',
-              )}
-            >
+            <div className={productsGrid()}>
               {response
                 ? response.products.nodes.map((product, index) => (
                     <ProductDisplay key={index} product={product} />
