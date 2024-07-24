@@ -138,7 +138,7 @@ const PRODUCT_ITEM_FRAGMENT = `#graphql
     id
     handle
     title
-    description
+    description(truncateAt: 100)
     featuredImage {
       id
       altText

@@ -34,7 +34,7 @@ export const RECOMMENDED_PRODUCTS_QUERY = `#graphql
   fragment RecommendedProduct on Product {
     id
     title
-    description
+    description(truncateAt: 100)
     handle
     priceRange {
       minVariantPrice {

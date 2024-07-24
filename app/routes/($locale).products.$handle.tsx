@@ -145,7 +145,7 @@ export default function Product() {
     >
       <ProductImage image={selectedVariant?.image} />
       <div className="product-main">
-        <h1 className={"text-6xl font-bold mb-4"}>{title}</h1>
+        <h1 className={'text-6xl font-bold mb-4'}>{title}</h1>
         <ProductPrice
           price={selectedVariant?.price}
           compareAtPrice={selectedVariant?.compareAtPrice}
@@ -176,7 +176,7 @@ export default function Product() {
         <br />
         <br />
         <p>
-          <strong className={"text-2xl font-bold"}>Description</strong>
+          <strong className={'text-2xl font-bold'}>Description</strong>
         </p>
         <br />
         <div dangerouslySetInnerHTML={{__html: descriptionHtml}} />
