@@ -1,17 +1,13 @@
 import {
   NavigationMenu,
-  NavigationMenuContent,
   NavigationMenuItem,
   NavigationMenuLink,
   NavigationMenuList,
-  NavigationMenuTrigger,
-  navigationMenuTriggerStyle,
 } from '~/components/ui/navigation-menu';
 import {Link} from '@remix-run/react';
 import React from 'react';
 import {cn} from '~/lib';
 import type {HeaderProps} from '~/components/layout/header/index';
-import {clsx} from 'clsx';
 import {cva} from 'class-variance-authority';
 
 export const ListItem = React.forwardRef<
@@ -46,14 +42,14 @@ export function DesktopNavigation(props: HeaderProps) {
     <NavigationMenu className={'hidden md:flex'}>
       <NavigationMenuList>
         <NavigationMenuItem>
-          <Link to="/collections/all" legacyBehavior passHref>
+          <Link to="/collections/all">
             <NavigationMenuLink className={navLink()}>
               Catalog
             </NavigationMenuLink>
           </Link>
         </NavigationMenuItem>
         <NavigationMenuItem>
-          <Link to="/contact" legacyBehavior passHref>
+          <Link to="/contact">
             <NavigationMenuLink className={navLink()}>
               Contact
             </NavigationMenuLink>

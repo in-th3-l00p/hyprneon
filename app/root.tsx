@@ -10,15 +10,12 @@ import {
   ScrollRestoration,
   isRouteErrorResponse,
   type ShouldRevalidateFunction,
-  useLoaderData,
 } from '@remix-run/react';
 import favicon from '~/assets/favicon.svg';
 import appStyles from '~/styles/app.css?url';
 import {PageLayout} from '~/components/layout/PageLayout';
 import {FOOTER_QUERY, HEADER_QUERY} from '~/lib/fragments';
 import '~/styles/tailwind.css';
-import {themeSessionResolver} from '~/sessions.server';
-import {PreventFlashOnWrongTheme, ThemeProvider, useTheme} from 'remix-themes';
 
 export type RootLoader = typeof loader;
 
@@ -66,12 +63,10 @@ export async function loader(args: LoaderFunctionArgs) {
   const criticalData = await loadCriticalData(args);
 
   const {storefront, env} = args.context;
-  const resolver = await themeSessionResolver(args.request);
 
   return defer({
     ...deferredData,
     ...criticalData,
-    theme: resolver.getTheme(),
     publicStoreDomain: env.PUBLIC_STORE_DOMAIN,
     shop: getShopAnalytics({
       storefront,
@@ -113,7 +108,6 @@ async function loadCriticalData({context}: LoaderFunctionArgs) {
  */
 async function loadDeferredData({request, context}: LoaderFunctionArgs) {
   const {storefront, customerAccount, cart} = context;
-  const {getTheme} = await themeSessionResolver(request);
 
   // defer the footer query (below the fold)
   const footer = storefront
@@ -132,18 +126,7 @@ async function loadDeferredData({request, context}: LoaderFunctionArgs) {
     cart: cart.get(),
     isLoggedIn: customerAccount.isLoggedIn(),
     footer,
-    theme: getTheme(),
   };
-}
-
-export function Html({children}: {children?: React.ReactNode}) {
-  const [theme] = useTheme();
-
-  return (
-    <html lang="en" className={'dark'}>
-      {children}
-    </html>
-  );
 }
 
 export function Layout({children}: {children?: React.ReactNode}) {
@@ -151,16 +134,11 @@ export function Layout({children}: {children?: React.ReactNode}) {
   const data = useRouteLoaderData<RootLoader>('root');
 
   return (
-    <ThemeProvider
-      specifiedTheme={data.theme}
-      themeAction={'/action/set-theme'}
-    >
-      <Html>
+    <html lang="en" className={'dark'}>
         <head>
           <meta charSet="utf-8" />
           <meta name="viewport" content="width=device-width,initial-scale=1" />
           <Meta />
-          <PreventFlashOnWrongTheme ssrTheme={Boolean(data.theme)} />
           <Links />
         </head>
         <body>
@@ -178,8 +156,7 @@ export function Layout({children}: {children?: React.ReactNode}) {
           <ScrollRestoration nonce={nonce} />
           <Scripts nonce={nonce} />
         </body>
-      </Html>
-    </ThemeProvider>
+    </html>
   );
 }
 
